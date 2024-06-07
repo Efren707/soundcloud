@@ -1,0 +1,27 @@
+.trending {
+    color: #494949;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    height: 800px;
+}
+
+.trending h3 {
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.songTilesContainer {
+    width: 100%;
+    box-sizing: border-box;
+    height: 540px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.trending button {
+    margin-bottom: 30px;
+}

@@ -1,0 +1,79 @@
+.carousel {
+    border-top: 4px solid #f50;
+    margin-left: -30px;
+    margin-right: -30px;
+    height: 468px;
+    background-image: url('../images/sc_landing_header_web_featured_artists@2x-00444712.jpg');
+    background-size: cover;
+}
+
+.topBar {
+    height: 50px;
+    margin: 10px 20px 0px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoContainer {
+    height: 100%;
+    width: 170px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 20px;
+    width: 40px;
+    background-image: url('../images/logo.png');
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.logoContainer h1 {
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.buttonContainer {
+    height: 100%;
+    width: 220px;
+    display: flex;
+    align-items: center;
+}
+
+.signIn {
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+
+
+.carouselText {
+    height: 330px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.carouselTextContent {
+    width: 67%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.carouselTextContent h1 {
+    line-height: 0px;
+    letter-spacing: 2px;
+}
+
+.carouselTextContent h3 {
+    font-size: 17px;
+    width: 70%;
+    text-align: center;
+}

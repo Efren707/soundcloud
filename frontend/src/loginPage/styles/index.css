@@ -1,0 +1,55 @@
+.interHeader {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+.interText {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+.button {
+    font-size: 13px;
+    color: white;
+    background-color: #f50;
+    border: 1px solid #f50;
+    border-radius: 3px;
+    padding: 6px 16px;
+    margin-right: 6px;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.bigButton {
+    color: white;
+    background-color: #f50;
+    border: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 12px 25px;
+    font-size: 17px;
+}
+
+.container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    color: white;
+    overflow-x: hidden;
+}
+    
+.content {
+    width: 1180px;
+    box-sizing: border-box;
+}
+    
+
+
