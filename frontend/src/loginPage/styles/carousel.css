@@ -54,21 +54,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    margin-top: 35px;
 }
 
 .carouselTextContent {
     width: 67%;
-    height: 100%;
+    height: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
 }
 
 .carouselTextContent h1 {
     line-height: 0px;
+    font-size: 33px;
     letter-spacing: 2px;
 }
 

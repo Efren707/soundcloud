@@ -86,8 +86,6 @@ app.use("/songs", songRoutes);
 /* ERROR HANDLING */
 app.use((error, req, res, next) => {
 
-    console.log(req.files)
-
     if(error instanceof multer.MulterError){
         if(error.code === "LIMIT_FILE_SIZE"){
             return res.status(400).json({
