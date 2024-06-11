@@ -1,25 +1,37 @@
-import React from 'react'
+import "./styles/forms.css";
+import React, { useState } from 'react';
 
 function RegisterForm() {
+
+  const [style, setStyle] = useState({display: 'flex'});
+
   return (
-    <div>
-        <p>Register</p>
-        <form>
-            
-            <label>Username: </label>
-            <input></input>
+    <div className='formContainer' style={style}>
 
-            <br/>
-            
-            <label>Email: </label>
-            <input></input>
+      <div className="closeBtn">
+        <button>X</button>
+      </div>
 
-            <br/>
+      <div className="formSubcontainer">
+
+        <form className="formInputContainer registerFormInputContainer">
             
-            <label>Password: </label>
-            <input></input>
+          <input placeholder="Username"></input>
+
+          <input placeholder="Email address"></input>
+
+          <input placeholder="Password"></input>
+
+          <button type="submit" className="bigButton">Continue</button>
 
         </form>
+
+        <div className="formLegalNotice">
+          <p>When registering, you agree that we may use your provided data for the registration and to send you notifications on our products and services. You can unsubscribe from notifications at any time in your settings. For additional info please refer to our <span>Privacy Policy</span>.</p>
+        </div>
+
+      </div>
+      
     </div>
   )
 }

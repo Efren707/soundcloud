@@ -1,0 +1,83 @@
+.formContainer {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(0, 0%, 94.9%, .9);
+}
+
+.closeBtn {
+    background-color: white;
+    width: 450px;
+    display: flex;
+    justify-content: end;
+}
+
+.closeBtn button {
+    cursor: pointer;
+    width: 35px;
+    height: 25px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+}
+
+.formSubcontainer {
+    height: 350px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.formLegalNotice {
+    width: 88%;
+    margin-top: 20px;
+}
+
+.formLegalNotice p {
+    color: #999;
+    font-weight: 100;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.formLegalNotice span {
+    color: #044dd2;
+    cursor: pointer;
+}
+
+.formLegalNotice span:hover {
+    color: black;
+}
+
+.formInputContainer {
+    height: 160px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.registerFormInputContainer {
+    height: 210px;
+}
+
+.formInputContainer input {
+    height: 35px;
+    border-radius: 3px;
+    font-size: 20px;
+    background: #ffffff;
+    border: 1px solid rgb(160, 160, 160);
+    padding: 0 10px;
+}
+
+.formInputContainer input:focus {
+    outline: none;
+}

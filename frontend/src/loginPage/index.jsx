@@ -4,19 +4,33 @@ import "./styles/search.css"
 import "./styles/trending.css"
 import "./styles/mobile.css"
 import "./styles/creators.css"
-import { useState } from "react";
+import React, { useState } from "react";
 import LoginForm from "./LoginModal";
 import RegisterForm from "./RegisterModal";
-import SontTile from "../components/SongTile"; 
+import SongTile from "../components/SongTile"; 
 
 const LoginPage = () => {
   
-  const [pageType, setPageType] = useState("login");
-  const isLogin = pageType === "login";
-  const isRegister = pageType === "register";
+  const [showForm, setForm] = useState("signUp");
+
+  function openForm(formtype) {
+    
+    if(formtype === "signIn"){
+      setForm("signIn");
+    } 
+
+    if(formtype === "signUp"){
+      setForm("signIn");
+    } 
+
+  }
 
   return (
     <div className="container">
+      
+      {showForm === "signIn" ? <LoginForm/> : null }
+      {showForm === "signUp" ? <RegisterForm/> : null }
+
       <div className="content">
 
         <div className="carousel">
@@ -29,8 +43,8 @@ const LoginPage = () => {
             </div>
 
             <div className="buttonContainer">
-              <button className="button signIn">Sign In</button>
-              <button className="button">Create account</button>
+              <button className="button signIn" onClick={() => {openForm("signIn")}}>Sign In</button>
+              <button className="button" onClick={() => {openForm("signUp")}}>Create account</button>
             </div>
 
           </div>
@@ -61,19 +75,19 @@ const LoginPage = () => {
           <h3>Hear what’s trending for free in the SoundCloud community</h3>
 
           <div className="songTilesContainer">
-            <SontTile/>
-            <SontTile/>
-            <SontTile/>
-            <SontTile/>
-            <SontTile/>
-            <SontTile/>
+            <SongTile/>
+            <SongTile/>
+            <SongTile/>
+            <SongTile/>
+            <SongTile/>
+            <SongTile/>
 
-            <SontTile/>
-            <SontTile/>
-            <SontTile/>
-            <SontTile/>
-            <SontTile/>
-            <SontTile/>
+            <SongTile/>
+            <SongTile/>
+            <SongTile/>
+            <SongTile/>
+            <SongTile/>
+            <SongTile/>
           </div>
 
           <button className="bigButton">Explore trending playlists</button>

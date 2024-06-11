@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "./styles/songTile.css";
 
-function SontTile() {
+function SongTile() {
 
   const [style, setStyle] = useState({display: 'none'});
 
@@ -32,4 +32,4 @@ function SontTile() {
   )
 }
 
-export default SontTile;
+export default SongTile;
