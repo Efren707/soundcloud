@@ -11,16 +11,22 @@ import SongTile from "../components/SongTile";
 
 const LoginPage = () => {
   
-  const [showForm, setForm] = useState("signUp");
+  const [showForm, setForm] = useState("close");
 
   function openForm(formtype) {
+
+    console.log(formtype);
     
     if(formtype === "signIn"){
       setForm("signIn");
     } 
 
     if(formtype === "signUp"){
-      setForm("signIn");
+      setForm("signUp");
+    }
+    
+    if(formtype === "close"){
+      setForm("close");
     } 
 
   }
@@ -28,8 +34,30 @@ const LoginPage = () => {
   return (
     <div className="container">
       
-      {showForm === "signIn" ? <LoginForm/> : null }
-      {showForm === "signUp" ? <RegisterForm/> : null }
+      {showForm === "signIn" ? 
+        <div className='formContainer'>
+
+          <div className="closeBtn">
+            <button onClick={() => {openForm("close")}}>X</button>
+          </div>
+
+          <LoginForm/> 
+
+        </div>
+      : null }
+
+      {showForm === "signUp" ? 
+        <div className='formContainer'>
+
+          <div className="closeBtn">
+            <button onClick={() => {openForm("close")}}>X</button>
+          </div>
+
+          <RegisterForm/> 
+
+        </div>
+      
+      : null }
 
       <div className="content">
 
@@ -135,11 +163,11 @@ const LoginPage = () => {
             <h2>Save tracks, follow artists and build playlists. All for free.</h2>
 
             <div className="thankyouBtns">
-              <button className="bigButton">Create account</button>
+              <button className="bigButton" onClick={() => {openForm("signUp")}}>Create account</button>
 
               <div className="tySignIn">
                 <p>Already have an account?</p>
-                <button className="bigButton">Sign in</button>
+                <button className="bigButton" onClick={() => {openForm("signIn")}}>Sign in</button>
               </div>
             </div>
           </div>

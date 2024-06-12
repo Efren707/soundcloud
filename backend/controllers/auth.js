@@ -45,9 +45,10 @@ export const register = async (req, res) => {
       description,
     });
     
-    const savedUser = await newUser.save();
+    const user = await newUser.save();
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
-    res.status(201).json(savedUser);
+    res.status(201).json({token, user});
 
   } catch (err) {
     res.status(500).json({ error: err.message });

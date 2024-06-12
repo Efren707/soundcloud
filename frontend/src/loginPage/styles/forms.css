@@ -65,6 +65,11 @@
     justify-content: space-between;
 }
 
+.formInputContainer p {
+    color: red;
+    font-size: 10px;
+}
+
 .registerFormInputContainer {
     height: 210px;
 }
