@@ -75,3 +75,48 @@ export const login = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const updateUser = async (req, res) => {  
+  try {
+
+    if(req.body.password){
+      const salt = await bcrypt.genSalt();
+      req.body.password = await bcrypt.hash(req.body.password, salt);
+    }
+
+    let imageKey = "";
+
+    if(req.file){
+      imageKey = `${uuid()}-${req.file.originalname}`;
+
+      try {
+        await s3UploadProfilePicture(req.file, imageKey);
+        req.body.profilePicPath = imageKey;
+      } catch (err) {
+        res.status(500).json({ error: err.message });
+      }
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          userName: req.body.userName,
+          email: req.body.email,
+          password: req.body.password,
+          location: req.body.location,
+          description: req.body.description,
+          profilePicPath: req.body.profilePicPath
+        }
+      },
+      { new: true }
+    );
+
+    const { password, ...rest } = updatedUser._doc;
+
+    res.status(200).json(rest);
+
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+}

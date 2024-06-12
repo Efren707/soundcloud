@@ -9,7 +9,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { register } from "./controllers/auth.js"
+import { register, updateUser } from "./controllers/auth.js"
 import { createSong } from "./controllers/songs.js";
 import { verifyToken } from "./middleware/auth.js";
 
@@ -73,6 +73,8 @@ const uploadSongMp3Pic = multer({
 
 /* ROUTES WITH FILES */
 app.post("/auth/register", uploadProfilePic.single("profilePicPath", 1), register);
+app.post("/update/:id", uploadProfilePic.single("profilePicPath", 1), verifyToken, updateUser);
+
 app.post("/songs", uploadSongMp3Pic.fields([
     {name: 'songMp3Path', maxCount: 1},
     {name: 'songPicturePath', maxCount: 1},
