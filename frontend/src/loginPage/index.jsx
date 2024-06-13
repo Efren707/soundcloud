@@ -14,8 +14,6 @@ const LoginPage = () => {
   const [showForm, setForm] = useState("close");
 
   function openForm(formtype) {
-
-    console.log(formtype);
     
     if(formtype === "signIn"){
       setForm("signIn");

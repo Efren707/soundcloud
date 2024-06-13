@@ -1,0 +1,69 @@
+.profileContainer {
+    width: 100vw;
+    height: calc(100vh - 46px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin-top: 46px;
+}
+
+.banner {
+    width: 82%;
+    height: 260px;
+    display: flex;
+    background: linear-gradient(315deg, rgb(207, 155, 178) 0%, rgb(86, 95, 141) 100%);
+}
+
+.bannerUserInfo {
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+
+.profileImg {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileImg img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.profileName {
+    width: 60%;
+    height: 100%;
+}
+
+.profileName h1 { 
+    background-color: rgba(0, 0, 0, .8);;
+    color: white;
+    max-width: max-content;
+    max-height: max-content;
+    padding: 4px 8px;
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 35px;
+}
+
+.profileName h3 {
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    max-width: max-content;
+    max-height: max-content;
+    padding: 4px 8px;
+    font-size: 17px;
+    font-weight: 100;
+    margin-top: 5px;
+}
+
+.bannerUploadHeader {
+    width: 50%;
+    height: 100%;
+}

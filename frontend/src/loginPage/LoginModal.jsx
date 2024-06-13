@@ -30,8 +30,6 @@ function LoginForm() {
     
     const loggedIn = await loggedInResponse.json();
 
-    console.log(loggedIn)
-
     if (loggedIn) {
       dispatch(
         setLogin({
@@ -39,15 +37,15 @@ function LoginForm() {
           token: loggedIn.token,
         })
       );
-      navigate("/home");
+      navigate("/profile");
     }
   };
 
   return (
 
-    <div onSubmit={handleSubmit(onSubmit)} className="formSubcontainer">
+    <div className="formSubcontainer">
       
-      <form className="formInputContainer">
+      <form onSubmit={handleSubmit(onSubmit)} className="formInputContainer">
 
         <input {...register("email", { required: true, min: 2, max: 50 })} placeholder="Email address"></input>
         <p>{errors.email?.message}</p>
