@@ -1,7 +1,7 @@
 .navContainer {
     width: 100%;
     height: 46px;
-    background-color: rgb(43, 43, 43);
+    background-color: rgb(51, 51, 51);
     position: absolute;
     display: flex;
     justify-content: center;
@@ -9,29 +9,24 @@
 }
 
 .navSubContainer {
-    width: 82%;
+    width: 100%;
+    max-width: 1260px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.navLeft {
+    width: 30%;
     height: 100%;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    border: 1px solid red;
-}
-
-.navLeft {
-    width: 300px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    border: 1px solid green;
-}
-
-.navLink {
-
 }
 
 .navLogoContainer {
-    width: 22%;
+    width: 70px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -40,13 +35,106 @@
 }
 
 .navLogo {
-    width: 68%;
-    height: 48%;
+    width: 65%;
+    height:50%;
     background-image: url("../images/navLogo.png");
     background-size: cover;
 }
 
+.navLeftLinks {
+    width: calc(100% - 70px);
+    height: 100%;
+    display: flex;
+}
+
+.navLink {
+    width: calc(100% / 3);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.navSearchBar {
+    width: 30%;
+    min-width: 178px;
+    max-width: 326px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navSearchBar input {
+    width: 93%;
+    height: 55%;
+    border-radius: 5px;
+    border: none;
+}
+
+.navRight {
+    width: 45%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: end;
+}
+
+.navRightSubContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 52%;
+    height: 100%;
+}
+
+.navUpload {
+    width: 67px;
+    height: 100%;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navProfile {
+    width: 50px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.navProfile img {
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+
+.navProfile svg {
+    height: 16px;
+}
+
+.navRightIcons {
+    width: 145px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
 .navIcons {
-    width: 20px;
-    border: 1px solid blue;
+    width: 33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navIcons svg {
+    height: 21px;
 }
