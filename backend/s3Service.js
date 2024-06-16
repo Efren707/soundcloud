@@ -16,8 +16,8 @@ export const s3UploadProfilePicture = async (file, fileKey) => {
 export const s3UploadSong = async (files, songKey, pictureKey) => {
     const s3client = new S3Client();
 
-    const mp3File = files.songMp3Path[0];
-    const pictureFile = files.songPicturePath[0];
+    const mp3File = files.mp3URL[0];
+    const pictureFile = files.imageURL[0];
 
     const mp3Param = {
         Bucket: process.env.AWS_BUCKET_NAME,

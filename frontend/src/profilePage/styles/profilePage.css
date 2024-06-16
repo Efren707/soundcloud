@@ -10,7 +10,8 @@
 }
 
 .banner {
-    width: 82%;
+    width: 100%;
+    max-width: 1260px;
     height: 260px;
     display: flex;
     background: linear-gradient(315deg, rgb(207, 155, 178) 0%, rgb(86, 95, 141) 100%);

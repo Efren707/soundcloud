@@ -6,10 +6,11 @@ const songSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    userName: {
+    displayName: {
       type: String,
       required: true,
     },
+    userPicturePath: String,
     title: {
       type: String,
       required: true,
@@ -22,15 +23,18 @@ const songSchema = mongoose.Schema(
       type: String,
       max: 100,
     },
-    songMp3Path: {
+    caption: {
+      type: String,
+      max: 100,
+    },
+    mp3URL: {
       type: String,
       required: true,
     },
-    songPicturePath: {
+    imageURL: {
       type: String,
       required: true,
     },
-    userPicturePath: String,
     likes: {
       type: Map,
       of: Boolean,

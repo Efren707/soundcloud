@@ -20,8 +20,8 @@ export const getUserFollowers = async (req, res) => {
       user.followers.map((id) => User.findById(id))
     );
     const formattedFollowers = followers.map(
-      ({ _id, userName, profilePicPath }) => {
-        return { _id, userName, profilePicPath };
+      ({ _id, displayName, profileURL }) => {
+        return { _id, displayName, profileURL };
       }
     );
     res.status(200).json(formattedFollowers);
@@ -39,8 +39,8 @@ export const getUserFollowing = async (req, res) => {
       user.following.map((id) => User.findById(id))
     );
     const formattedFollowing = following.map(
-      ({ _id, userName, profilePicPath }) => {
-        return { _id, userName, profilePicPath };
+      ({ _id, displayName, profileURL }) => {
+        return { _id, displayName, profileURL };
       }
     );
     res.status(200).json(formattedFollowing);
@@ -72,8 +72,8 @@ export const addRemoveFollow = async (req, res) => {
     );
 
     const formattedFollowing = followingList.map(
-      ({ _id, userName, profilePicPath }) => {
-        return { _id, userName, profilePicPath };
+      ({ _id, displayName, profileURL }) => {
+        return { _id, displayName, profileURL };
       }
     );
 

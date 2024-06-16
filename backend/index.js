@@ -51,13 +51,13 @@ const uploadProfilePic = multer({
 
 const songFileFilter = (req, file, cb) => {
     
-    if(file.fieldname === "songMp3Path" && file.mimetype.split("/")[0] === 'audio'){
+    if(file.fieldname === "mp3URL" && file.mimetype.split("/")[0] === 'audio'){
         cb(null, true);
     } else {
         cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE"), false);
     }
 
-    if(file.fieldname === "songPicturePath" && file.mimetype.split("/")[0] === 'image'){
+    if(file.fieldname === "imageURL" && file.mimetype.split("/")[0] === 'image'){
         cb(null, true);
     } else {
         cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE"), false);
@@ -72,13 +72,13 @@ const uploadSongMp3Pic = multer({
 
 
 /* ROUTES WITH FILES */
-app.post("/auth/register", uploadProfilePic.single("profilePicPath", 1), register);
-app.post("/update/:id", uploadProfilePic.single("profilePicPath", 1), verifyToken, updateUser);
+app.post("/auth/register", uploadProfilePic.single("profileURL", 1), register);
+app.post("/update/:id", uploadProfilePic.single("profileURL", 1), verifyToken, updateUser);
 
 app.post("/songs", uploadSongMp3Pic.fields([
-    {name: 'songMp3Path', maxCount: 1},
-    {name: 'songPicturePath', maxCount: 1},
-]), verifyToken, createSong);
+    {name: 'mp3URL', maxCount: 1},
+    {name: 'imageURL', maxCount: 1},
+]), createSong);
 
 /* ROUTES */
 app.use("/auth", authRoutes);

@@ -4,7 +4,7 @@ import LoginPage from "./loginPage";
 import DiscoverPage from "./discoverPage/Discover";
 
 import './App.css';
-import UserPage from "./userPage";
+import ProfilePage from "./profilePage/ProfilePage";
 import Navbar from "./navbar/Navbar";
 import Playbar from "./playbar/Playbar";
 
@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage/>} /> 
           <Route path="/discover" element={isAuth ? <DiscoverPage/> : <Navigate to="/" /> } />
-          <Route path="/profile" element={isAuth ? <UserPage/> : <Navigate to="/" /> } />
+          <Route path="/profile" element={isAuth ? <ProfilePage/> : <Navigate to="/" /> } />
         </Routes>
         
         { isAuth ? 

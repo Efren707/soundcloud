@@ -1,4 +1,4 @@
-import "./styles/index.css";
+import "./styles/profilePage.css";
 import React, { useState } from 'react';
 import { useSelector } from "react-redux";
 import EditUserModal from "./EditUserModal";

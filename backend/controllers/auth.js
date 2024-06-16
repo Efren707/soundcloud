@@ -9,14 +9,17 @@ import { v4 as uuid } from "uuid";
 export const register = async (req, res) => {
   try {
     const {
-      userName,
+      displayName,
       email,
       password,
-      profilePicPath,
+      firstName,
+      lastName,
+      profileURL,
       followers,
       following,
-      location,
-      description,
+      city,
+      country,
+      bio
     } = req.body;
 
     const salt = await bcrypt.genSalt();
@@ -35,14 +38,17 @@ export const register = async (req, res) => {
     }
   
     const newUser = new User({
-      userName,
+      displayName,
       email,
       password: passwordHash,
-      profilePicPath: imageKey,
+      firstName,
+      lastName,
+      profileURL: imageKey,
       followers,
       following,
-      location,
-      description,
+      city,
+      country,
+      bio
     });
     
     const user = await newUser.save();
@@ -91,7 +97,7 @@ export const updateUser = async (req, res) => {
 
       try {
         await s3UploadProfilePicture(req.file, imageKey);
-        req.body.profilePicPath = imageKey;
+        req.body.profileURL = imageKey;
       } catch (err) {
         res.status(500).json({ error: err.message });
       }
@@ -101,12 +107,15 @@ export const updateUser = async (req, res) => {
       req.params.id,
       {
         $set: {
-          userName: req.body.userName,
+          displayName: req.body.displayName,
           email: req.body.email,
           password: req.body.password,
-          location: req.body.location,
-          description: req.body.description,
-          profilePicPath: req.body.profilePicPath
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          profileURL: req.body.profileURL,
+          city: req.body.city,
+          country: req.body.country,
+          bio: req.body.bio
         }
       },
       { new: true }

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    userName: {
+    displayName: {
       type: String,
       required: true,
       min: 3,
@@ -20,7 +20,17 @@ const UserSchema = new mongoose.Schema(
       required: true,
       min: 5,
     },
-    profilePicPath: {
+    firstName: {
+      type: String,
+      min: 1,
+      max: 50,
+    },
+    lastName: {
+      type: String,
+      min: 1,
+      max: 50,
+    },
+    profileURL: {
       type: String,
       default: "",
     },
@@ -32,8 +42,9 @@ const UserSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    location: String,
-    description: {
+    city: String,
+    country: String,
+    bio: {
       type: String,
       max: 150,
     },

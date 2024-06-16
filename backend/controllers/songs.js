@@ -7,7 +7,19 @@ import { v4 as uuid } from "uuid";
 /* CREATE */
 export const createSong = async (req, res) => {
   try {
-    const { userId, userName, userPicturePath, title, genre, description, songMp3Path, songPicturePath, likes, comments } = req.body;
+    const { 
+      userId, 
+      displayName, 
+      userPicturePath, 
+      title, 
+      genre, 
+      description, 
+      caption,
+      mp3URL, 
+      imageURL, 
+      likes, 
+      comments 
+    } = req.body;
     
     const user = await User.findById(userId);
 
@@ -15,8 +27,8 @@ export const createSong = async (req, res) => {
     let pictureKey = "";
 
     if(req.files){
-      songKey = `${uuid()}-${req.files.songMp3Path[0].originalname}`;
-      pictureKey = `${uuid()}-${req.files.songPicturePath[0].originalname}`;
+      songKey = `${uuid()}-${req.files.mp3URL[0].originalname}`;
+      pictureKey = `${uuid()}-${req.files.imageURL[0].originalname}`;
 
       try {
         await s3UploadSong(req.files, songKey, pictureKey);
@@ -28,13 +40,14 @@ export const createSong = async (req, res) => {
     
     const newSong = new Song({
         userId,
-        userName: user.userName,
-        userPicturePath: user.profilePicPath,
+        displayName: user.displayName,
+        userPicturePath: user.profileURL,
         title,
         genre,
         description,
-        songMp3Path: songKey, 
-        songPicturePath: pictureKey,
+        caption,
+        mp3URL: songKey, 
+        imageURL: pictureKey,
         likes: {},
         comments: [],
     });
