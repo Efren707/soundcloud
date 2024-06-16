@@ -33,7 +33,7 @@ function Navbar() {
                 <div className="navLeft">
                     <a 
                         className="navLogoContainer"
-                        onClick={() => navigate("/home")}
+                        onClick={() => navigate("/discover")}
                     >
                         <div className="navLogo"></div>
                     </a>
