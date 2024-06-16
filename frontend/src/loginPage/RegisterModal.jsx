@@ -51,7 +51,7 @@ function RegisterForm() {
           token: savedUser.token,
         })
       );
-      navigate("/profile");
+      navigate("/home");
     }
   };
 

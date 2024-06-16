@@ -37,7 +37,7 @@ function LoginForm() {
           token: loggedIn.token,
         })
       );
-      navigate("/profile");
+      navigate("/home");
     }
   };
 

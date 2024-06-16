@@ -10,16 +10,15 @@ import Navbar from "./navbar/Navbar";
 
 function App() {
 
-  const mode = useSelector((state) => state.mode);
   const isAuth = Boolean(useSelector((state) => state.token));
-
-  console.log(isAuth);
 
   return (
     <BrowserRouter>
       <div className="App">
 
-        {isAuth ? <Navbar/> : null}
+        { isAuth ? 
+          <Navbar/> 
+        : null}
         
         <Routes>
           <Route path="/" element={<LoginPage/>} /> 

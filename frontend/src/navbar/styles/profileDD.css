@@ -1,0 +1,30 @@
+.navProfileDDContainer {
+    width: 135px;
+    background-color: white;
+    border: 1px solid rgb(151, 151, 151);
+    position: absolute;
+    top: 46px;
+    margin-left: 75px;
+}
+
+.navProfileDDContainer li {
+    height: 32px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.navProfileDDContainer li:first-child {
+    background-color: #f2f2f2;
+}
+
+.navProfileDDContainer li:hover {
+    background-color: #f2f2f2;
+}
+
+.navProfileDDContainer svg {
+    margin-left: 8px;
+    margin-right: 8px;
+}

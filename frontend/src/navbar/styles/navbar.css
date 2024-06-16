@@ -25,6 +25,11 @@
     align-items: center;
 }
 
+.navLeft a {
+    border-right: 1px solid black;
+    cursor: pointer;
+}
+
 .navLogoContainer {
     width: 70px;
     height: 100%;
@@ -56,6 +61,10 @@
     font-size: 14px;
 }
 
+.navLink:hover {
+    color:#eee
+}
+
 .navSearchBar {
     width: 30%;
     min-width: 178px;
@@ -63,15 +72,44 @@
     height: 100%;
     box-sizing: border-box;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 .navSearchBar input {
-    width: 93%;
-    height: 55%;
-    border-radius: 5px;
+    width: calc(90% - 25px);
+    height: 26px;
     border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 10px;
+    background-color: #d6d6d6;
+}
+
+.navSearchBar input:focus {
+    outline: none;
+}
+
+.searchBtnCtn {
+    height: 28px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d6d6d6;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.searchButton {
+    border: none;
+    height: 15px;
+    width: 15px;
+    margin-right: 10px;
+    background-image: url(../images/search.svg);
+    background-size: cover;
+    cursor: pointer;
+    background-color: #d6d6d6;
 }
 
 .navRight {
@@ -86,8 +124,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 52%;
+    width: 50%;
     height: 100%;
+}
+
+.navRightSubContainer a {
+    cursor: pointer;
 }
 
 .navUpload {
@@ -99,14 +141,17 @@
     justify-content: center;
 }
 
+.navUpload:hover {
+    color: #eee
+}
+
 .navProfile {
-    width: 50px;
+    width: 60px;
     height: 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 5px;
 }
 
 .navProfile img {
@@ -116,11 +161,12 @@
 }
 
 .navProfile svg {
-    height: 16px;
+    height: 15px;
+    width: 15px;
 }
 
 .navRightIcons {
-    width: 145px;
+    width: 150px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -137,4 +183,8 @@
 
 .navIcons svg {
     height: 21px;
+}
+
+.navIcons:hover svg {
+    color: white;
 }
