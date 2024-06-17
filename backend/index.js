@@ -23,6 +23,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 const app = express();
 app.use(express.json());
+
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
@@ -73,12 +74,12 @@ const uploadSongMp3Pic = multer({
 
 /* ROUTES WITH FILES */
 app.post("/auth/register", uploadProfilePic.single("profileURL", 1), register);
-app.post("/update/:id", uploadProfilePic.single("profileURL", 1), verifyToken, updateUser);
+app.patch("/update/:id", uploadProfilePic.single("profileURL", 1), updateUser);
 
 app.post("/songs", uploadSongMp3Pic.fields([
     {name: 'mp3URL', maxCount: 1},
     {name: 'imageURL', maxCount: 1},
-]), createSong);
+]), verifyToken, createSong);
 
 /* ROUTES */
 app.use("/auth", authRoutes);

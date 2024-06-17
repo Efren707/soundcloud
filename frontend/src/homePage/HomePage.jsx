@@ -1,4 +1,4 @@
-import "./styles/index.css"
+import "./styles/homepage.css"
 import "./styles/carousel.css"
 import "./styles/search.css"
 import "./styles/trending.css"

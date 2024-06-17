@@ -9,7 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 const schema = yup.object({
-  userName: yup.string().required("Please enter a username").min(3),
+  displayName: yup.string().required("Please enter a displayName").min(3),
   email: yup.string().email("Invalid email").required("Please enter an email"),
   password: yup.string().required("Please enter a password").min(5)
 }).required();
@@ -36,13 +36,11 @@ function RegisterForm() {
       "http://localhost:4000/auth/register",
       {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(formData)
       }
     );
 
     const savedUser = await savedUserResponse.json();
-
-    console.log(savedUser);
 
     if(savedUser) {
       dispatch(
@@ -62,8 +60,8 @@ function RegisterForm() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="formInputContainer registerFormInputContainer">
           
-        <input {...register("userName", { required: true, min: 3, max: 50 })} placeholder="Username"></input>
-        <p>{errors.userName?.message}</p>
+        <input {...register("displayName", { required: true, min: 3, max: 50 })} placeholder="Display Name"></input>
+        <p>{errors.displayName?.message}</p>
 
 
         <input {...register("email", { required: true, min: 2, max: 50 })} placeholder="Email address"></input>

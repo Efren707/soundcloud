@@ -1,54 +1,53 @@
 import "./styles/profilePage.css";
 import React, { useState } from 'react';
 import { useSelector } from "react-redux";
+
 import EditUserModal from "./EditUserModal";
 
 function UserPage() {
 
-  const {_id, userName, email, password, profilePicPath, followers, following} = useSelector((state) => state.user);
+  const { displayName, firstName, lastName, profileURL } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
 
-  const [showForm, setForm] = useState("close");
+  const [showForm, setForm] = useState("");
 
-  function openForm(formtype) {
-    
-    if(formtype === "update"){
-      setForm("update");
-    } 
-
-    if(formtype === "close"){
-      setForm("close");
-    } 
-
+  function openForm() {
+    if(showForm.length === 0) {
+      setForm("open");
+    } else {
+      setForm("")
+    }
   } 
 
 
   return (
     <div className="profileContainer">
 
-      {showForm === "update" ? 
-      <div className='modalContainer'>
+      {
+        showForm === "open" ? 
+        <div className='userEditModalContainer'>
 
-        <div className="closeBtn">
-          <button onClick={() => {openForm("close")}}>X</button>
+          <div className="userEditCloseBtn">
+            <button onClick={() => {openForm()}}>X</button>
+          </div>
+
+          <EditUserModal closeForm={openForm}/> 
+
         </div>
-
-        <EditUserModal/> 
-
-      </div>
-      : null }
+        : null 
+      }
 
       <div className="banner">
 
         <div className="bannerUserInfo">
           
           <div className="profileImg">
-            <img src={`https://efren-soundcloud-storage.s3.us-east-2.amazonaws.com/profilePicture/${profilePicPath}`}/>
+            <img src={`https://efren-soundcloud-storage.s3.us-east-2.amazonaws.com/profilePicture/${profileURL}`}/>
           </div>
 
           <div className="profileName">
-            <h1>{userName}</h1>
-            <h3>{userName}</h3>
+            <h1>{displayName}</h1>
+            <h3>{firstName} {lastName}</h3>
           </div>
           
         </div>
@@ -58,7 +57,7 @@ function UserPage() {
       </div>
 
       <div className="profileNav">
-        <button onClick={() => {openForm("update")}}>Edit</button>
+        <button onClick={() => {openForm()}}>Edit</button>
       </div>
     </div>
   )

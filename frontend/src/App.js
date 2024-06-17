@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Routes, Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
-import LoginPage from "./loginPage";
+import HomePage from "./homePage/HomePage";
 import DiscoverPage from "./discoverPage/Discover";
 
 import './App.css';
@@ -21,7 +21,7 @@ function App() {
         : null}
         
         <Routes>
-          <Route path="/" element={<LoginPage/>} /> 
+          <Route path="/" element={<HomePage/>} /> 
           <Route path="/discover" element={isAuth ? <DiscoverPage/> : <Navigate to="/" /> } />
           <Route path="/profile" element={isAuth ? <ProfilePage/> : <Navigate to="/" /> } />
         </Routes>

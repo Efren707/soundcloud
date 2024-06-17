@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     color: #ccc;
+    z-index: 600;
 }
 
 .navSubContainer {
@@ -158,6 +159,7 @@
     height: 26px;
     width: 26px;
     border-radius: 50%;
+    padding-right: 5px;
 }
 
 .navProfile svg {

@@ -12,7 +12,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function Navbar() {
-    const { userName, profilePicPath } = useSelector((state) => state.user);
+    const { displayName, profileURL } = useSelector((state) => state.user);
     const navigate = useNavigate();
     const [actLink, setActlink] = useState("home");
     const [actIcon, setActIcon] = useState("");
@@ -73,7 +73,7 @@ function Navbar() {
                             style={actIcon === "profile" ? {backgroundColor: '#111', color: 'white'} : null}
                             onClick={() => handleActiveIcon("profile")}
                         >
-                            <img src={`https://efren-soundcloud-storage.s3.us-east-2.amazonaws.com/profilePicture/${profilePicPath}`}/>
+                            <img src={`https://efren-soundcloud-storage.s3.us-east-2.amazonaws.com/profilePicture/${profileURL}`}/>
                             <ExpandMoreIcon/>
 
                             { actIcon === "profile" ? 

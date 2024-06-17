@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import SongCarousel from "../components/SongCarousel";
 
 const DiscoverPage = () => {
-    const {_id, userName, email, password, profilePicPath, followers, following} = useSelector((state) => state.user);
+    const { displayName, firstName, lastName, profileURL } = useSelector((state) => state.user);
     const token = useSelector((state) => state.token);
 
     return (

@@ -22,13 +22,13 @@ const UserSchema = new mongoose.Schema(
     },
     firstName: {
       type: String,
-      min: 1,
       max: 50,
+      default: "",
     },
     lastName: {
       type: String,
-      min: 1,
       max: 50,
+      default: "",
     },
     profileURL: {
       type: String,
@@ -42,11 +42,20 @@ const UserSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    city: String,
-    country: String,
+    city: {
+      type: String,
+      max: 50,
+      default: "",
+    },
+    country: {
+      type: String,
+      max: 50,
+      default: "",
+    },
     bio: {
       type: String,
       max: 150,
+      default: "",
     },
   },
   { timestamps: true }

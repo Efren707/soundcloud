@@ -103,20 +103,20 @@ export const updateUser = async (req, res) => {
       }
     }
 
+    const { id } = req.params;
+
     const updatedUser = await User.findByIdAndUpdate(
-      req.params.id,
+      id,
       {
-        $set: {
-          displayName: req.body.displayName,
-          email: req.body.email,
-          password: req.body.password,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          profileURL: req.body.profileURL,
-          city: req.body.city,
-          country: req.body.country,
-          bio: req.body.bio
-        }
+        displayName: req.body.displayName,
+        email: req.body.email,
+        password: req.body.password,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        profileURL: req.body.profileURL,
+        city: req.body.city,
+        country: req.body.country,
+        bio: req.body.bio 
       },
       { new: true }
     );
