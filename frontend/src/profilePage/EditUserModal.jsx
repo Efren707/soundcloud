@@ -1,13 +1,14 @@
 import "./styles/editModal.css";
 import CameraIcon from '@mui/icons-material/CameraAlt';
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../state"
+import { updateUser,  } from "../state"
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import axios from "axios";
 
 const schema = yup.object({
   displayName: yup.string().required("Please enter a display name").min(3),
@@ -27,6 +28,8 @@ function EditUserModal(props) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const [image, setImage] = useState(null);
+
     const { register, handleSubmit, watch, formState:{ errors } } = useForm({
         defaultValues: user ? {
             displayName: user.displayName,
@@ -40,30 +43,36 @@ function EditUserModal(props) {
         resolver: yupResolver(schema)
     });
 
+    function handleImage(e) {
+        setImage(e.target.files[0]);
+    }
+
     const onSubmit = async (values) => {
 
         const formData = new FormData();
 
-        for(let value in values) {
-            formData.append(value, values[value]);
+        for (let value in values) {
+            if(value === "profileURL" && typeof values[value] === "object") {
+                formData.append("profileURL", values.profileURL[0]);
+            } else {
+                formData.append(value, values[value]);
+            }
         }
 
-        formData.append("profileURL", values.profileURL);
-                
-        const updatedUserResponse = await fetch(`http://localhost:4000/update/${user._id}`, {
+        axios({
+            url: `http://localhost:4000/update/${user._id}`,
             method: "PATCH",
             headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data",
             },
-            body: JSON.stringify(values),
-        });
-        
-        const updatedUser = await updatedUserResponse.json();
+            data: formData
+        }).then((res) => {
+            dispatch(updateUser({ updatedUser: res.data }));
+        },(err) => {
+            console.log(err)
+        })
 
-        if(updatedUser) {
-            dispatch(updateUser({ updatedUser: updatedUser }));
-        }
+
 
         props.closeForm();
         
@@ -85,13 +94,14 @@ function EditUserModal(props) {
                             src={`https://efren-soundcloud-storage.s3.us-east-2.amazonaws.com/profilePicture/${user.profileURL}`}
                         />
 
-                        <label for="profileURL">
+                        <label htmlFor="profileURL">
                             <CameraIcon/> Update image
                         </label>
                         <input 
                             id="profileURL" 
+                            name="profileURL" 
                             type="file"
-                            {...register("profileURL")}    
+                            {...register("profileURL")}
                         ></input>
 
                         <p>{errors.profileURL?.message}</p>

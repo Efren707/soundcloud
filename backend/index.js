@@ -74,7 +74,7 @@ const uploadSongMp3Pic = multer({
 
 /* ROUTES WITH FILES */
 app.post("/auth/register", uploadProfilePic.single("profileURL", 1), register);
-app.patch("/update/:id", uploadProfilePic.single("profileURL", 1), updateUser);
+app.patch("/update/:id", uploadProfilePic.single("profileURL", 1), verifyToken, updateUser);
 
 app.post("/songs", uploadSongMp3Pic.fields([
     {name: 'mp3URL', maxCount: 1},

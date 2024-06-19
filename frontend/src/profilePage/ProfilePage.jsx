@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 
 import EditUserModal from "./EditUserModal";
 
+import EditIcon from '@mui/icons-material/EditOutlined';
+
 function UserPage() {
 
   const { displayName, firstName, lastName, profileURL } = useSelector((state) => state.user);
@@ -56,8 +58,27 @@ function UserPage() {
 
       </div>
 
-      <div className="profileNav">
-        <button onClick={() => {openForm()}}>Edit</button>
+      <div className="profileHeader">
+        <div className="profileHeadings">
+          <h3>Your Tracks</h3>
+        </div>
+
+        <button onClick={() => {openForm()}}>
+          <EditIcon/>
+          Edit
+        </button>
+      </div>
+
+      <div className="profileContent">
+
+        <div className="userSongs">
+
+        </div>
+
+        <div className="rightBar">
+          <div className="followInfo"></div>
+          
+        </div>
       </div>
     </div>
   )
