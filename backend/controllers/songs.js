@@ -17,6 +17,7 @@ export const createSong = async (req, res) => {
       caption,
       mp3URL, 
       imageURL, 
+      playCount,
       likes, 
       comments 
     } = req.body;
@@ -48,6 +49,7 @@ export const createSong = async (req, res) => {
         caption,
         mp3URL: songKey, 
         imageURL: pictureKey,
+        playCount,
         likes: {},
         comments: [],
     });
@@ -75,6 +77,16 @@ export const getUserSongs = async (req, res) => {
   try {
     const { userId } = req.params;
     const song = await Song.find({ userId });
+    res.status(200).json(song);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+export const getSong = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const song = await Song.findById( id );
     res.status(200).json(song);
   } catch (err) {
     res.status(404).json({ message: err.message });

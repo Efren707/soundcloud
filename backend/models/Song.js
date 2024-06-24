@@ -35,6 +35,11 @@ const songSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    playCount: {
+      type: Number,
+      required: true,
+      default: 0
+    },
     likes: {
       type: Map,
       of: Boolean,

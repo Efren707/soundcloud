@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     user: null,
     token: null,
-    song: [],
+    song: null,
+    songs: [],
 };
 
 export const authSlice = createSlice({
@@ -32,8 +33,11 @@ export const authSlice = createSlice({
                 console.error("user followers non-existent");
             }
         },
-        setSongs: (state, action) => {
+        getSongs: (state, action) => {
             state.songs = action.payload.songs;
+        },
+        playSong: (state, action) => {
+            state.song = action.payload.song;
         },
         setSong: (state, action) => {
             const updatedSongs = state.songs.map((song) => {
@@ -46,5 +50,5 @@ export const authSlice = createSlice({
     }
 })
 
-export const { setLogin, setRegister, updateUser, setLogout, setFollowers, setSongs, setSong } = authSlice.actions;
+export const { setLogin, setRegister, updateUser, setLogout, setFollowers, getSongs, playSong, setSong } = authSlice.actions;
 export default authSlice.reducer;

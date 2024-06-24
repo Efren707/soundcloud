@@ -1,9 +1,22 @@
 import React, {useState} from 'react';
-import "./styles/songTile.css";
+import { useDispatch } from "react-redux";
+import { playSong } from '../state';
+import { useNavigate } from "react-router-dom";
 
-function SongTile() {
+
+import "./styles/songTile.css";
+import defaultPic from "./images/defaultSongPic.jpg";
+
+function SongTile({song}) {
 
   const [style, setStyle] = useState({display: 'none'});
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handlePlay(){
+    dispatch(playSong({song: song}));
+  }
 
   return (
     <div className='tileContainer'>
@@ -15,17 +28,20 @@ function SongTile() {
         onMouseLeave={e => {
           setStyle({display: 'none'})
         }}
+        style={{
+          backgroundImage: song.imageURL ? `url(https://efren-soundcloud-storage.s3.us-east-2.amazonaws.com/songPicture/${song.imageURL})` : "url(./images/defaultSongPic.jpg)"
+        }}
       >
-        
-        <div className="playBtn" style={style}>
+
+        <div className="playBtn" style={style} onClick={handlePlay}>
           <div className="playIcon"></div>
         </div>
       
       </div>
 
       <div className="songInfo">
-        <h4>Title</h4>
-        <h5>Artist</h5>
+        <h4 onClick={() => navigate(`/track/${song._id}`)}>{song.title}</h4>
+        <h5 onClick={() => navigate(`/artist/${song.userId}`)}>{song.displayName}</h5>
       </div>
       
     </div>

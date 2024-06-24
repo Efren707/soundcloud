@@ -3,7 +3,7 @@ import CameraIcon from '@mui/icons-material/CameraAlt';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser,  } from "../state"
+import { updateUser } from "../state"
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -26,9 +26,6 @@ function EditUserModal(props) {
     const token = useSelector((state) => state.token);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const [image, setImage] = useState(null);
 
     const { register, handleSubmit, watch, formState:{ errors } } = useForm({
         defaultValues: user ? {
@@ -42,10 +39,6 @@ function EditUserModal(props) {
         } : undefined,
         resolver: yupResolver(schema)
     });
-
-    function handleImage(e) {
-        setImage(e.target.files[0]);
-    }
 
     const onSubmit = async (values) => {
 
@@ -71,8 +64,6 @@ function EditUserModal(props) {
         },(err) => {
             console.log(err)
         })
-
-
 
         props.closeForm();
         

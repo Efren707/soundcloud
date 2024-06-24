@@ -1,0 +1,108 @@
+.profileContainer {
+    width: 100vw;
+    height: calc(100vh - 46px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin-top: 46px;
+}
+
+.banner {
+    width: 100%;
+    max-width: 1260px;
+    height: 260px;
+    display: flex;
+    background: linear-gradient(315deg, rgb(207, 155, 178) 0%, rgb(86, 95, 141) 100%);
+}
+
+.bannerUserInfo {
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+
+.profileImg {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    caret-color: transparent;
+}
+
+.profileImg img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    caret-color: transparent;
+}
+
+.profileName {
+    width: 60%;
+    height: 100%;
+}
+
+.profileName h1 {
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    max-width: max-content;
+    max-height: max-content;
+    padding: 4px 8px;
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 35px;
+}
+
+.profileName h3 {
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    max-width: max-content;
+    max-height: max-content;
+    padding: 4px 8px;
+    font-size: 17px;
+    font-weight: 100;
+    margin-top: 5px;
+}
+
+.bannerUploadHeader {
+    width: 50%;
+    height: 100%;
+}
+
+.profileHeader {
+    width: 100%;
+    max-width: 1200px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.profileHeadings h3 {
+    color: #f50;
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #f50;
+}
+
+.profileHeader button {
+    width: 70px;
+    height: 25px;
+    box-sizing: border-box;
+    padding: 2px 11px 2px 10px;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.profileHeader button svg {
+    height: 15px;
+}

@@ -1,0 +1,35 @@
+.songPageContainer {
+    width: 100vw;
+    height: calc(100vh - 46px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin-top: 46px;
+    color: #333;
+}
+
+.songBanner {
+    width: 100%;
+    max-width: 1260px;
+    height: 260px;
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(315deg, rgb(207, 155, 178) 0%, rgb(86, 95, 141) 100%);
+}
+
+.songBannerInfo {
+    width: 400px;
+    height: 100%;
+}
+
+.songBannerImg {
+    width: 400px;
+    height: 100%;
+}
+
+.songBannerImg img {
+    height: 250px;
+    width: 250px;
+}

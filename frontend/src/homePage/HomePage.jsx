@@ -100,21 +100,12 @@ const LoginPage = () => {
         <div className="trending">
           <h3>Hear what’s trending for free in the SoundCloud community</h3>
 
-          <div className="songTilesContainer">
+          {/* <div className="songTilesContainer">
             <SongTile/>
             <SongTile/>
             <SongTile/>
             <SongTile/>
-            <SongTile/>
-            <SongTile/>
-
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-          </div>
+          </div> */}
 
           <button className="bigButton">Explore trending playlists</button>
         </div>

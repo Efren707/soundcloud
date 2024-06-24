@@ -3,34 +3,21 @@ import "./styles/songCarousel.css";
 
 import SongTile from "./SongTile";
 
-function SongCarousel() {
+function SongCarousel({title, songs}) {
+
+  const songItems = songs.map((song) => 
+    <SongTile song={song} />
+  )
+
   return (
     <div className='songCarouselContainer'>
 
         <div className="carouselTitle">
-            <h1>Trending Music on SoundCloud</h1>
+            <h1>{title}</h1>
         </div>
 
         <div className="carouselContainer">
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
-            <SongTile/>
+            { songItems }
         </div>
 
     </div>
