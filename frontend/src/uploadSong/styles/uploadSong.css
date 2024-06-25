@@ -1,0 +1,85 @@
+.uploadSongContainer {
+    width: 100vw;
+    height: calc(100vh - 96px);
+    box-sizing: border-box;
+    margin-top: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.uploadSongSubcontainer {
+    width: 600px;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.uploadSongForm {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.uploadSongForm input, select {
+    font-size: 18px;
+    padding: 7px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 520px;
+    box-sizing: border-box;
+}
+
+.uploadSongForm p {
+    margin-bottom: 20px;
+}
+
+.uploadSongBtns {
+    display: flex;
+    justify-content: end;
+}
+
+.uploadSongBtn {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+    border-radius: 3px;
+    padding: 4px 10px;
+    background-color: transparent;
+}
+
+.uploadSongBtn:last-child {
+    background-color: #f50;
+    color: white;
+    margin-left: 5px;
+}
+
+.songFormLegalNotice {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.songFormLegalNotice p {
+    color: #999;
+    font-weight: 100;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.songFormLegalNotice span {
+    color: #044dd2;
+    cursor: pointer;
+}
+
+.songFormLegalNotice span:hover {
+    color: black;
+}

@@ -13,23 +13,86 @@
 .songBanner {
     width: 100%;
     max-width: 1260px;
-    height: 260px;
+    height: 300px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background: linear-gradient(315deg, rgb(207, 155, 178) 0%, rgb(86, 95, 141) 100%);
 }
 
 .songBannerInfo {
-    width: 400px;
+    width: calc(100% - 300px);
     height: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
 }
 
 .songBannerImg {
-    width: 400px;
-    height: 100%;
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .songBannerImg img {
-    height: 250px;
-    width: 250px;
+    height: 240px;
+    width: 240px;
+}
+
+.songPlayBtn {
+    height: 60px;
+    width: 60px;
+    background-color: #f50;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    caret-color: transparent;
+}
+
+.songPlayIcon {
+    background-image: url("../images/play.svg");
+    background-size: cover;
+    height: 36px;
+    width: 22px;
+    margin-left: 2px;
+    z-index: 101;
+}
+
+.songInfoText {
+    width: 90%;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.songInfoTextCon {
+    width: 95%;
+}
+
+.songInfoTextCon h1, h2 {
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    padding: 8px;
+    margin-bottom: 2px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    max-width: max-content;
+}
+
+.songInfoTextCon h1 {
+    font-size: 24px;
+}
+
+.songInfoTextCon h2 {
+    font-size: 16px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.songInfoTextCon h2:hover {
+    color: white;
 }

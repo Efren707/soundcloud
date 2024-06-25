@@ -1,15 +1,18 @@
 import "./styles/profilePage.css";
-import React, { useState } from 'react';
-import { useSelector } from "react-redux";
-
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { getUserSongs } from "../state";
+import axios from "axios";
 import EditUserModal from "./EditUserModal";
-
+import ProfileSongs from "./ProfileSongs";
 import EditIcon from '@mui/icons-material/EditOutlined';
 
 function UserPage() {
-
-  const { displayName, firstName, lastName, profileURL } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
+  const { _id, displayName, firstName, lastName, profileURL } = useSelector((state) => state.user);
+  const userSongs = useSelector((state) => state.userSongs);
+
+  const dispatch = useDispatch();
 
   const [showForm, setForm] = useState("");
 
@@ -21,6 +24,26 @@ function UserPage() {
     }
   } 
 
+  const setUserSongs = async () => {
+
+    axios({
+      url: `http://localhost:4000/songs/${_id}`,
+      method: "GET",
+      headers: {
+          Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data",
+      }
+    }).then((res) => {
+      console.log(res.data)
+      dispatch(getUserSongs({ userSongs: res.data }));
+    },(err) => {
+      console.log(err)
+    })
+
+  };
+
+  useEffect(() => {
+    setUserSongs();
+  }, []); 
 
   return (
     <div className="profileContainer">
@@ -72,7 +95,7 @@ function UserPage() {
       <div className="profileContent">
 
         <div className="userSongs">
-
+          <ProfileSongs/>
         </div>
 
         <div className="rightBar">

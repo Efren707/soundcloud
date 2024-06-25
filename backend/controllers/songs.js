@@ -38,20 +38,20 @@ export const createSong = async (req, res) => {
       }
       
     }
-    
+  
     const newSong = new Song({
-        userId,
-        displayName: user.displayName,
-        userPicturePath: user.profileURL,
-        title,
-        genre,
-        description,
-        caption,
-        mp3URL: songKey, 
-        imageURL: pictureKey,
-        playCount,
-        likes: {},
-        comments: [],
+      userId,
+      displayName: user.displayName,
+      userPicturePath: user.profileURL,
+      title,
+      genre,
+      description,
+      caption,
+      mp3URL: songKey, 
+      imageURL: pictureKey,
+      playCount,
+      likes: {},
+      comments: [],
     });
 
     await newSong.save();

@@ -104,3 +104,15 @@
 .profileHeader button svg {
     height: 15px;
 }
+
+.profileContent {
+    width: 100%;
+    max-width: 1260px;
+    margin-top: 5px;
+    border: 1px solid red;
+}
+
+.userSongs {
+    width: 880px;
+    border: 1px solid blue;
+}

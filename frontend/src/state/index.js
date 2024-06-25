@@ -5,6 +5,7 @@ const initialState = {
     token: null,
     song: null,
     songs: [],
+    userSongs: [],
 };
 
 export const authSlice = createSlice({
@@ -36,19 +37,17 @@ export const authSlice = createSlice({
         getSongs: (state, action) => {
             state.songs = action.payload.songs;
         },
+        getUserSongs: (state, action) => {
+            state.userSongs = action.payload.userSongs;
+        },
         playSong: (state, action) => {
             state.song = action.payload.song;
         },
-        setSong: (state, action) => {
-            const updatedSongs = state.songs.map((song) => {
-                if(song.id === action.payload.song_id) return action.payload.song;
-                return song;
-            });
-
-            state.songs = updatedSongs; 
+        uploadSong: (state, action) => {
+            state.song = action.payload.uploadedSong;
         }
     }
 })
 
-export const { setLogin, setRegister, updateUser, setLogout, setFollowers, getSongs, playSong, setSong } = authSlice.actions;
+export const { setLogin, setRegister, updateUser, setLogout, setFollowers, getSongs, getUserSongs, playSong, uploadSong } = authSlice.actions;
 export default authSlice.reducer;

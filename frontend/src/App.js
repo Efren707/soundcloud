@@ -9,6 +9,7 @@ import Navbar from "./navbar/Navbar";
 import Playbar from "./playbar/Playbar";
 import ArtistPage from "./artistPage/ArtistPage";
 import SongPage from "./songPage/SongPage";
+import UploadSong from "./uploadSong/UploadSong";
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/profile" element={isAuth ? <ProfilePage/> : <Navigate to="/" /> } />
           <Route path="/artist/:id" element={isAuth ? <ArtistPage/> : <Navigate to="/" /> } />
           <Route path="/track/:id" element={isAuth ? <SongPage/> : <Navigate to="/" /> } />
+          <Route path="/upload" element={isAuth ? <UploadSong/> : <Navigate to="/" /> } />
         </Routes>
         
         { isAuth && isSong ? 

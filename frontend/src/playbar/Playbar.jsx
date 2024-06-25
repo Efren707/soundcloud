@@ -14,7 +14,6 @@ const Playbar = () => {
     if(audioRef.current){
       audioRef.current.pause();
       audioRef.current.load();
-      audioRef.current.play();
     } 
   }
 
@@ -44,7 +43,7 @@ const Playbar = () => {
           </div>
 
           <div className="playbarSongArtist">
-            <h1>{song.title}</h1>
+            <h1 onClick={() => navigate(`/track/${song._id}`)}>{song.title}</h1>
             <h1 onClick={() => navigate(`/artist/${song.userId}`)}>{song.displayName}</h1>
           </div>
         

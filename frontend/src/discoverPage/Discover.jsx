@@ -1,7 +1,7 @@
 import "./styles/discover.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getSongs } from "../state"
+import { getSongs } from "../state";
 import axios from "axios";
 import SongCarousel from "../components/SongCarousel";
 

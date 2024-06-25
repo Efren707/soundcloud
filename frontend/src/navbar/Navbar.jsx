@@ -25,6 +25,20 @@ function Navbar() {
         }
     }
 
+    function clickLink(link){
+
+        if(link === "upload"){
+            navigate("/upload");
+            setActlink("upload")
+        } else if(link === "home"){
+            navigate("/discover");
+            setActlink("home");
+        } else {
+            setActlink(link);
+        }
+        
+    }
+
     return (
         <div className='navContainer'>
 
@@ -42,17 +56,17 @@ function Navbar() {
                         <a 
                             className="navLink" 
                             style={actLink === "home" ? {backgroundColor: '#111'} : null}
-                            onClick={() => {setActlink("home")}}
+                            onClick={() => clickLink("home")}
                         >Home</a>
                         <a 
                             className="navLink" 
                             style={actLink === "feed" ? {backgroundColor: '#111'} : null}
-                            onClick={() => {setActlink("feed")}}
+                            onClick={() => clickLink("feed")}
                         >Feed</a>
                         <a 
                             className="navLink" 
                             style={actLink === "library" ? {backgroundColor: '#111'} : null}
-                            onClick={() => {setActlink("library")}}
+                            onClick={() => clickLink("library")}
                         >Library</a>
                     </div>
                 </div>
@@ -67,7 +81,11 @@ function Navbar() {
                 <div className="navRight">
 
                     <div className="navRightSubContainer">
-                        <a className="navUpload">Upload</a>
+                        <a 
+                            className="navUpload"
+                            style={actLink === "upload" ? {backgroundColor: '#111'} : null}
+                            onClick={() => clickLink("upload")}
+                        >Upload</a>
                 
                         <a className="navProfile"
                             style={actIcon === "profile" ? {backgroundColor: '#111', color: 'white'} : null}
