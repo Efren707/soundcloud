@@ -82,6 +82,8 @@ export const login = async (req, res) => {
   }
 };
 
+
+// UPDATE USER
 export const updateUser = async (req, res) => {  
   try {
 

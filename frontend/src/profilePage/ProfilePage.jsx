@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUserSongs } from "../state";
 import axios from "axios";
 import EditUserModal from "./EditUserModal";
-import ProfileSongs from "./ProfileSongs";
+import ProfileSong from "./ProfileSong";
 import EditIcon from '@mui/icons-material/EditOutlined';
 
 function UserPage() {
@@ -13,7 +13,6 @@ function UserPage() {
   const userSongs = useSelector((state) => state.userSongs);
 
   const dispatch = useDispatch();
-
   const [showForm, setForm] = useState("");
 
   function openForm() {
@@ -25,15 +24,13 @@ function UserPage() {
   } 
 
   const setUserSongs = async () => {
-
     axios({
-      url: `http://localhost:4000/songs/${_id}`,
+      url: `http://localhost:4000/songs/artist/${_id}`,
       method: "GET",
       headers: {
-          Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`
       }
     }).then((res) => {
-      console.log(res.data)
       dispatch(getUserSongs({ userSongs: res.data }));
     },(err) => {
       console.log(err)
@@ -95,7 +92,13 @@ function UserPage() {
       <div className="profileContent">
 
         <div className="userSongs">
-          <ProfileSongs/>
+          {
+            userSongs?.map((song) =>{
+              return(
+                <ProfileSong song={song}/>
+              )
+            })
+          }
         </div>
 
         <div className="rightBar">

@@ -35,7 +35,7 @@ function ArtistPage() {
 
                 <div className="bannerUserInfo">
                 
-                <div className="profileImg">
+                <div className="artistProfileImg">
                     <img src={`https://efren-soundcloud-storage.s3.us-east-2.amazonaws.com/profilePicture/${artist?.profileURL}`}/>
                 </div>
 

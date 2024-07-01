@@ -1,6 +1,6 @@
 .profileContainer {
     width: 100vw;
-    height: calc(100vh - 46px);
+    height: calc(100vh - 96px);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -29,13 +29,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    caret-color: transparent;
 }
 
 .profileImg img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    caret-color: transparent;
 }
+
 
 .profileName {
     width: 60%;
@@ -72,10 +77,11 @@
 .profileHeader {
     width: 100%;
     max-width: 1200px;
-    height: 40px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: end;
+    margin-top: 10px;
 }
 
 .profileHeadings h3 {
@@ -107,12 +113,11 @@
 
 .profileContent {
     width: 100%;
-    max-width: 1260px;
+    max-width: 1200px;
     margin-top: 5px;
-    border: 1px solid red;
+    padding-bottom: 60px;
 }
 
 .userSongs {
-    width: 880px;
-    border: 1px solid blue;
+    width: 850px;
 }

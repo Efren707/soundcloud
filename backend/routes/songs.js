@@ -6,8 +6,8 @@ const router = express.Router();
 
 /* READ */
 router.get("/", verifyToken, getFeedSongs);
-router.get("/:userId", verifyToken, getUserSongs);
 router.get("/:id", verifyToken, getSong);
+router.get("/artist/:userId", verifyToken, getUserSongs);
 
 /* UPDATE */
 router.patch("/:id/like", verifyToken, likeSong);

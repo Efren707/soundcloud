@@ -1,0 +1,176 @@
+.profileSongsContainer {
+    height: 140px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    color: #333;
+    display: flex;
+}
+
+.profileSongImg {
+    width: 110px;
+    height: 110px;
+}
+
+.profileSongsSubcontainer {
+    width: calc(100% - 140px);
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profileSongInfo {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileSongInfoLeft {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    font-size: 16px;  
+}
+
+.profilePlayBtn {
+    height: 36px;
+    width: 36px;
+    background-color: #f50;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    caret-color: transparent;
+}
+
+.profilePlayBtn:hover {
+    background-color: #f30;
+}
+
+.profilePlayIcon {
+    background-image: url("../images/play.svg");
+    background-size: cover;
+    height: 24px;
+    width: 15px;
+    z-index: 101;
+    margin-left: 5px;
+}
+
+.profileSongLeftMain {
+    margin-left: 5px;
+}
+
+.profileSongLeftMain h1 {
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.profileSongLeftMain h3 {
+    cursor: pointer;
+    color: #999;
+    font-size: 12px;
+}
+
+.profileSongInfoRight {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.profileSongInfoRight h1 {
+    color: #ccc;
+    font-size: 14px;
+}
+.profileSongInfoRight button {
+    background: #999;
+    border: 1px solid #999;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+.profileSongInfoRight button:hover {
+    background: #666;
+    border-color: #666;
+}
+
+.profileSongInteractions {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.profileSongInteractionsLeft {
+    display: flex;
+}
+
+.profileSongInteractionsLeft button {
+    font-size: 12px;
+    padding: 1px 4px;
+    height: 22px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.profileSongInteractionsLeft button svg {
+    height: 12px;
+    width: 18px;
+}
+
+.profileSongInteractionsRight {
+    display: flex;
+    height: 18px;
+}
+
+.profileSongInteractionsRight h1 {
+    color: #999;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.profileSongInteractionsRight h1:first-child {
+    margin-right: 5px;
+}
+
+.profileSongPlayCount svg {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.profileSongCommentCount svg {
+    margin-right: 5px;
+    height: 11px;
+    width: 11px;
+}
+
+.editSongModalContainer {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(0, 0%, 94.9%, .9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}

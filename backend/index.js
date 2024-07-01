@@ -10,7 +10,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import { register, updateUser } from "./controllers/auth.js"
-import { createSong } from "./controllers/songs.js";
+import { createSong, updateSong } from "./controllers/songs.js";
 import { verifyToken } from "./middleware/auth.js";
 
 import authRoutes from "./routes/auth.js";
@@ -80,6 +80,11 @@ app.post("/upload", uploadSongMp3Pic.fields([
     {name: 'mp3URL', maxCount: 1},
     {name: 'imageURL', maxCount: 1},
 ]), verifyToken, createSong);
+
+app.patch("/editSong/:id", uploadSongMp3Pic.fields([
+    {name: 'mp3URL', maxCount: 1},
+    {name: 'imageURL', maxCount: 1},
+]), verifyToken, updateSong);
 
 /* ROUTES */
 app.use("/auth", authRoutes);

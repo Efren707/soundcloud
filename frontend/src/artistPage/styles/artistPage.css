@@ -23,7 +23,7 @@
     display: flex;
 }
 
-.profileImg {
+.artistProfileImg {
     width: 40%;
     height: 100%;
     display: flex;
@@ -32,7 +32,7 @@
     caret-color: transparent;
 }
 
-.profileImg img {
+.artistProfileImg img {
     height: 200px;
     width: 200px;
     border-radius: 50%;

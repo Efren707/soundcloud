@@ -17,9 +17,7 @@ function SongPage() {
         axios({
             url: `http://localhost:4000/songs/${id}`,
             method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data",
-            }
+            headers: { Authorization: `Bearer ${token}`}
         }).then((res) => {
             setSong(res.data);
         },(err) => {

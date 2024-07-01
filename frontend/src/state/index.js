@@ -26,6 +26,9 @@ export const authSlice = createSlice({
         setLogout: (state) => {
             state.user = null;
             state.token = null;
+            state.song = null;
+            state.songs = null;
+            state.userSongs = null;
         },
         setFollowers: (state, action) => {
             if(state.user){
@@ -45,9 +48,12 @@ export const authSlice = createSlice({
         },
         uploadSong: (state, action) => {
             state.song = action.payload.uploadedSong;
-        }
+        },
+        updateSong: (state, action) => {
+            state.song = action.payload.updatedSong;
+        },
     }
 })
 
-export const { setLogin, setRegister, updateUser, setLogout, setFollowers, getSongs, getUserSongs, playSong, uploadSong } = authSlice.actions;
+export const { setLogin, setRegister, updateUser, setLogout, setFollowers, getSongs, getUserSongs, playSong, uploadSong, updateSong } = authSlice.actions;
 export default authSlice.reducer;
