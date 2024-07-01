@@ -1,0 +1,58 @@
+.deleteSongModalContainer {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(0, 0%, 94.9%, .9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+.deleteSongModalSubcontainer {
+    height: 130px;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.deleteModalWarning {
+    width: 100%;
+    text-align: center;
+}
+
+.deleteModalWarning h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.deleteModalBtns {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.deleteModalBtns button {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+    border-radius: 3px;
+    padding: 4px 10px;
+    background-color: transparent;
+}
+
+.deleteModalBtns button:last-child {
+    background-color: #f50;
+    color: white;
+    margin-left: 5px;
+}

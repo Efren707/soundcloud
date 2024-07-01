@@ -10,13 +10,15 @@ import EditIcon from '@mui/icons-material/EditOutlined';
 import PlayIcon from '@mui/icons-material/PlayArrow';
 import CommentIcon from '@mui/icons-material/ChatBubble';
 import LikeIcon from '@mui/icons-material/Favorite';
+import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteSongModal from './DeleteSongModal';
 
 function ProfileSong({song}) {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [showEdit, setShowEdit] = useState(false);
+    const [showModal, setModal] = useState("");
 
     const likeCount = Object.keys(song.likes).length;
     const commentCount = Object.keys(song.comments).length;
@@ -26,8 +28,18 @@ function ProfileSong({song}) {
         dispatch(playSong({song: song}));
     }
 
+    function openModal() {
+        if(showModal.length === 0) {
+            setModal("open");
+        } else {
+            setModal("")
+        }
+    } 
+
     return (
         <div className='profileSongsContainer'>
+
+            { showModal === "open" ? <DeleteSongModal songId={song._id} title={song.title} closeModal={openModal} /> : null }
 
             <div 
                 className="profileSongImg"
@@ -64,6 +76,7 @@ function ProfileSong({song}) {
                     <div className="profileSongInteractionsLeft">
                         <button><LikeIcon/>{likeCount}</button>
                         <button onClick={() => navigate(`/editTrack/${song._id}`, {state: {song : song}})}>Edit <EditIcon/></button>
+                        <button onClick={() => setModal("open")}>Delete <DeleteIcon/></button>
                     </div>
 
                     <div className="profileSongInteractionsRight">

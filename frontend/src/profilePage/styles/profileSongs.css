@@ -127,9 +127,18 @@
     margin-right: 5px;
 }
 
+.profileSongInteractionsLeft button:hover {
+    border: 1px solid #ccc;
+}
+
 .profileSongInteractionsLeft button svg {
     height: 12px;
     width: 18px;
+}
+
+.profileSongInteractionsLeft button:last-child:hover {
+    border: 1px solid rgb(235, 9, 9);
+    color: rgb(204, 0, 0);
 }
 
 .profileSongInteractionsRight {

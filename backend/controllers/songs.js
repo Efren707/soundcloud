@@ -169,3 +169,15 @@ export const likeSong = async (req, res) => {
     res.status(404).json({ message: err.message });
   }
 };
+
+export const deleteSong = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedSong = await Song.deleteOne({ id });
+
+    res.status(200).json(id);
+
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+}

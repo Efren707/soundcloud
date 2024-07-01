@@ -52,8 +52,13 @@ export const authSlice = createSlice({
         updateSong: (state, action) => {
             state.song = action.payload.updatedSong;
         },
+        deleteSong: (state, action) => {
+            let deletedSongId = action.payload.deletedSong;
+            let filteredUserSongs = state.userSongs.filter(song => song._id !== deletedSongId);
+            state.userSongs = filteredUserSongs;
+        },
     }
 })
 
-export const { setLogin, setRegister, updateUser, setLogout, setFollowers, getSongs, getUserSongs, playSong, uploadSong, updateSong } = authSlice.actions;
+export const { setLogin, setRegister, updateUser, setLogout, setFollowers, getSongs, getUserSongs, playSong, uploadSong, updateSong, deleteSong } = authSlice.actions;
 export default authSlice.reducer;
